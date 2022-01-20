@@ -11,6 +11,17 @@ public class Car extends Device {
 
     }
 
+    @Override
+    public void turnOn() {
+        System.out.println(" Przekręcam kluczyk");
+        System.out.println("Silnik został odpalony");
+    }
+
+    @Override
+    public boolean isTurnedOn() {
+        return false;
+    }
+
     public String toString()
     {
         return "Producer: " + this.producer + " model: " + this.model + "rok produkcji: " + this.yearOfProduction;

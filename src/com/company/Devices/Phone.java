@@ -34,7 +34,20 @@ public class Phone extends Device {
                 ", colour='" + colour + '\'' +
                 '}';
     }
+
+    public void turnOn() {
+        System.out.println("Wciskam przycisk");
+        System.out.println("czekam");
+        System.out.println("czekam");
+        System.out.println("czekam");
+        System.out.println("Telefon został uruchomiony");
+    }
+
+    public boolean isTurnedOn() {
+        return false;
+    }
 }
+
 
 
 

@@ -1,6 +1,6 @@
 package com.company.Devices;
 
-public class Device {
+abstract public class Device {
 
         protected final String producer;
         public final String model;
@@ -13,5 +13,11 @@ public class Device {
             this.yearOfProduction = yearOfProduction;
             this.colour = colour;
         }
+
+        public Integer getAge(){
+            return 2021 - yearOfProduction ;
+    }
+        abstract public void turnOn();
+        abstract public boolean isTurnedOn();
 
 }

@@ -1,6 +1,7 @@
 package com.company;
 
 import com.company.Devices.Car;
+import com.company.Devices.Device;
 import com.company.Devices.Phone;
 
 
@@ -31,5 +32,14 @@ public class Main {
         System.out.println(me.species);
         System.out.println(me.weight);
         System.out.println(me.firstName);
+
+        System.out.println(fiat.getAge());
+
+        Animal cat = new Animal("lucky");
+
+        fiat.turnOn();
+        fiat.isTurnedOn();
+        iphone.turnOn();
+        iphone.isTurnedOn();
     }
     }
