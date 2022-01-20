@@ -1,6 +1,6 @@
 package com.company;
 
-public class Animal {
+public class Animal implements Saleable {
     final static Double DEFAULT_CAT_WEIGHT = 2.0;
     public static final Double DEFAULT_DOG_WEIGHT = 10.0;
     public static final double DEFAULT_WEIGHT = 1.0;
@@ -41,6 +41,22 @@ public class Animal {
         } else {
             System.out.println("ANIMAL IS DEAD ");
         }
+    }
+
+    @Override
+    public void sale(Human seller, Human buyer, double price) {
+        if(buyer.cash < price){
+            System.out.println("Brak środków");
+        } else if (seller.pet != this){
+            System.out.println("Nawet nie masz zwierzaka");
+        } else  {
+            seller.cash += price;
+            buyer.cash -= price;
+            seller.pet = null;
+            buyer.pet = this;
+            System.out.println("Udało się sprzedać zwierzaka za cene " + price + "pln");
+        }
+
     }
 }
 

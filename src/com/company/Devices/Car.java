@@ -1,6 +1,9 @@
 package com.company.Devices;
 
-public class Car extends Device {
+import com.company.Human;
+import com.company.Saleable;
+
+public class Car extends Device implements Saleable {
 
     public Double engineVolume;
     public String plates;
@@ -25,5 +28,18 @@ public class Car extends Device {
     public String toString()
     {
         return "Producer: " + this.producer + " model: " + this.model + "rok produkcji: " + this.yearOfProduction;
+    }
+    public void sale(Human seller, Human buyer, double price){
+        if (buyer.cash < price){
+            System.out.println("Brak środków");
+        } else if(seller.car != this){
+            System.out.println("Nie posiadasz samochodu");
+        } else {
+            seller.cash += price;
+            buyer.cash -= price;
+            seller.car = null;
+            buyer.car = this;
+            System.out.println("Udało się sprzedać auto za " + price + "pln");
+        }
     }
 }

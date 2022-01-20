@@ -41,5 +41,18 @@ public class Main {
         fiat.isTurnedOn();
         iphone.turnOn();
         iphone.isTurnedOn();
+
+        Human brotherInLow = new Human();
+
+        brotherInLow.cash =15000.0;
+        me.car = fiat;
+        me.pet = cat;
+        me.mobile = iphone;
+        me.human1 = me;
+
+        fiat.sale(me,brotherInLow, 10000);
+        iphone.sale(me, brotherInLow, 5000);
+        cat.sale(me, brotherInLow, 6000);
+        me.sale(me, brotherInLow, 8000);
     }
     }
