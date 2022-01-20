@@ -1,8 +1,9 @@
 package com.company;
 
 import com.company.Devices.Car;
-import com.company.Devices.Device;
 import com.company.Devices.Phone;
+import creature.Animal;
+import creature.Pet;
 
 
 public class Main {
@@ -35,7 +36,8 @@ public class Main {
 
         System.out.println(fiat.getAge());
 
-        Animal cat = new Animal("lucky");
+
+        Pet cat = new Pet("Lucky");
 
         fiat.turnOn();
         fiat.isTurnedOn();

@@ -2,6 +2,7 @@ package com.company;
 
 import com.company.Devices.Car;
 import com.company.Devices.Phone;
+import creature.Animal;
 
 public class Human extends Animal {
 
@@ -37,7 +38,12 @@ public class Human extends Animal {
             System.out.println("Handel ludźmi jest niedozwolony");
         }
     }
+
+    @Override
+    public double foodWeight() {
+        return 0;
     }
+}
 
 
 

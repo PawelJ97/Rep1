@@ -1,14 +1,17 @@
-package com.company;
+package creature;
 
-public class Animal implements Saleable {
+import com.company.Human;
+import com.company.Saleable;
+
+abstract public class Animal implements Saleable, Feedable {
     final static Double DEFAULT_CAT_WEIGHT = 2.0;
     public static final Double DEFAULT_DOG_WEIGHT = 10.0;
     public static final double DEFAULT_WEIGHT = 1.0;
 
-    final String species;
-    Double weight;
+    public String species;
     String name;
     Boolean isAlive;
+    public double weight;
 
     public Animal(String species) {
         this.isAlive = true;
@@ -22,7 +25,7 @@ public class Animal implements Saleable {
         }
     }
 
-    void feed() {
+    public void feed() {
         if (this.isAlive) {
             this.weight += 1;
             System.out.println("Thank you for food");
@@ -31,7 +34,7 @@ public class Animal implements Saleable {
         }
     }
 
-    void takeForAWalk() {
+     public void takeForAWalk() {
         if (this.isAlive) {
             this.weight -= 1;
             System.out.println("that was nice walk :D");
