@@ -24,11 +24,12 @@ public class Main {
         Human me = new Human();
         System.out.println(me.getSalary());
 
-        me.setSalary(600.0);
+        me.setSalary(700.0);
 
         me.feed();
         me.takeForAWalk();
         System.out.println(me.species);
         System.out.println(me.weight);
+        System.out.println(me.firstName);
     }
     }
