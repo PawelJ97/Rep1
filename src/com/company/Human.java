@@ -40,10 +40,11 @@ public class Human extends Animal {
     }
 
     @Override
-    public double foodWeight() {
-        return 0;
+    public void feed(Double foodweight) {
+
     }
 }
+
 
 
 

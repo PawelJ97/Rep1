@@ -4,7 +4,8 @@ public class FarmAnimal extends Animal implements Edbile {
 
     boolean beEaten = false;
 
-    public FarmAnimal(String species) {
+    public FarmAnimal(String species)
+    {
         super(species);
     }
 
@@ -18,8 +19,9 @@ public class FarmAnimal extends Animal implements Edbile {
 
     }
 
+
     @Override
-    public double foodWeight() {
-        return 0;
+    public void feed(Double foodweight) {
+
     }
 }

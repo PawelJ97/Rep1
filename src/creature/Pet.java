@@ -1,12 +1,14 @@
 package creature;
 
-public class Pet extends Animal {
-    public Pet(String species) {
+public class Pet extends Animal  {
+    public Pet(String species)
+    {
         super(species);
     }
-
+    public void beEaten() {
+    }
     @Override
-    public double foodWeight() {
-        return 0;
+    public void feed(Double foodweight) {
+
     }
 }
