@@ -30,14 +30,14 @@ public class Main {
 
         me.feed();
         me.takeForAWalk();
-        System.out.println(me.species);
-        System.out.println(me.weight);
+        System.out.println(me.getSpecies());
+        System.out.println(me.getWeight());
         System.out.println(me.firstName);
 
         System.out.println(fiat.getAge());
 
 
-        Pet cat = new Pet("Lucky");
+        Animal cat = new Pet("Lucky");
 
         fiat.turnOn();
         fiat.isTurnedOn();

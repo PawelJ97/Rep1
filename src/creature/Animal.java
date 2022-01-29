@@ -7,11 +7,13 @@ abstract public class Animal implements Saleable, Feedable {
     final static Double DEFAULT_CAT_WEIGHT = 2.0;
     public static final Double DEFAULT_DOG_WEIGHT = 10.0;
     public static final double DEFAULT_WEIGHT = 1.0;
+    private static final double DEFAULT_FOOD_WEIGHT = 1.0;
 
-    public String species;
-    String name;
-    Boolean isAlive;
-    public double weight;
+
+    private String species;
+    public String name;
+    public Boolean isAlive;
+    protected double weight;
 
     public Animal(String species) {
         this.isAlive = true;
@@ -25,13 +27,26 @@ abstract public class Animal implements Saleable, Feedable {
         }
     }
 
+    public String getSpecies() {
+        return species;
+    }
+
+    public double getWeight() {
+        return weight;
+    }
+
     public void feed() {
+      this.feed(DEFAULT_FOOD_WEIGHT);
+    }
+
+    public void feed(double foodWeight){
         if (this.isAlive) {
-            this.weight += 1;
-            System.out.println("Thank you for food");
-        } else {
-            System.out.println(" its too late");
-        }
+        this.weight += foodWeight;
+        System.out.println("Thank you for food");
+    } else {
+        System.out.println(" its too late");
+    }
+
     }
 
      public void takeForAWalk() {
@@ -59,6 +74,8 @@ abstract public class Animal implements Saleable, Feedable {
             buyer.pet = this;
             System.out.println("Udało się sprzedać zwierzaka za cene " + price + "pln");
         }
+
+
 
     }
 }

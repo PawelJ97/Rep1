@@ -1,8 +1,6 @@
 package creature;
 
-public class FarmAnimal extends Animal implements Edbile {
-
-    boolean beEaten = false;
+public abstract class FarmAnimal extends Animal implements Edbile {
 
     public FarmAnimal(String species)
     {
@@ -10,18 +8,10 @@ public class FarmAnimal extends Animal implements Edbile {
     }
 
     @Override
-    public void beEaten(Animal feed) {
-        if (!beEaten){
-            System.out.println("Nie jest do zjedzenia");
-        } else {
-            System.out.println("Do zjedzenia");
+    public void beEaten() {
+        this.isAlive = false;
+        this.weight = 0.0;
+        System.out.println("Zjedzony");
         }
 
     }
-
-
-    @Override
-    public void feed(Double foodweight) {
-
-    }
-}

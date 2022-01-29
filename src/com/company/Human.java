@@ -6,8 +6,8 @@ import creature.Animal;
 
 public class Human extends Animal {
 
-    String firstName;
-    String lastName;
+    public String firstName;
+    public String lastName;
     private Double salary;
     public Double cash;
     public Car car;
