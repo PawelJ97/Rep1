@@ -1,17 +1,19 @@
 package com.company;
 
-import com.company.Devices.Car;
-import com.company.Devices.Phone;
+import com.company.Devices.*;
 import creature.Animal;
 import creature.Pet;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class Main {
 
     public static void main(String[] args) {
 
-        Car fiat = new Car("Fiat", "Bravo", 2016, "grey");
-        Car passerati = new Car("VW", "Passat", 2004, "black");
+        LPG fiat = new LPG("Fiat", "Bravo", 2016, "grey");
+        LPG passerati = new LPG("VW", "Passat", 2004, "black");
 
         Phone iphone = new Phone("Apple", "S", 2017, 4.3, 3);
         Phone xiaomi = new Phone("xiaomi", "mi8", 2018, 6.8, 8, "Android", "black");
@@ -56,5 +58,25 @@ public class Main {
         iphone.sale(me, brotherInLow, 5000);
         cat.sale(me, brotherInLow, 6000);
         me.sale(me, brotherInLow, 8000);
+
+        iphone.installAnApp("messenger");
+        iphone.installAnApp("youtube","last");
+
+        List<String> apps = new ArrayList<>();
+        apps.add("fb");
+        apps.add("gmail");
+        apps.add("office");
+        xiaomi.installAnApp(apps);
+
+        Disel audi  = new Disel("Audi", "A6", 2013, "White");
+        Electric nissan = new Electric("Nissan", "Leaf", 2021, "Black");
+        LPG dacia = new LPG("Dacia", "Duster", 2018, "Orange");
+
+        audi.Refuel();
+        nissan.Refuel();
+        dacia.Refuel();
+
+
+
     }
     }
