@@ -17,14 +17,14 @@ public class Phone extends Device implements Saleable {
     String colour;
     private final Integer ramSize;
 
-    public Phone(String producer, String model, Integer yearOfProduction, Double screenSize, Integer ramSize) {
-        super(producer, model, yearOfProduction, "black");
+    public Phone(String producer, String model, Integer yearOfProduction, Double screenSize, Integer ramSize, double value) {
+        super(producer, model, yearOfProduction, "black", 3000);
         this.screenSize = screenSize;
         this.ramSize = ramSize;
     }
 
-    public Phone(String producer, String model, Integer yearOfProduction, Double screenSize, Integer ramSize, String os, String colour) {
-        super(producer, model, yearOfProduction, colour);
+    public Phone(String producer, String model, Integer yearOfProduction, Double screenSize, Integer ramSize, String os, String colour, double value) {
+        super(producer, model, yearOfProduction, colour, value);
         this.screenSize = screenSize;
         this.ramSize = ramSize;
         this.os = os;

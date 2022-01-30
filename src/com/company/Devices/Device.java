@@ -8,12 +8,14 @@ abstract public class Device implements Saleable {
         public final String model;
         public final Integer yearOfProduction;
         public String colour;
+        public Double value;
 
-        public Device(String producer, String model, Integer yearOfProduction, String colour) {
+        public Device(String producer, String model, Integer yearOfProduction, String colour, double value) {
             this.producer = producer;
             this.model = model;
             this.yearOfProduction = yearOfProduction;
             this.colour = colour;
+            this.value = 0.0;
         }
 
         public Integer getAge(){
