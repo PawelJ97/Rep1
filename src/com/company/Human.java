@@ -13,6 +13,7 @@ public class Human extends Animal {
     public String firstName;
     public String name;
     private Double salary;
+ // private double salary;
     public Double cash;
     public Car[] garage;
     public Phone mobile;
@@ -22,11 +23,25 @@ public class Human extends Animal {
 
     public Human() {
         super("homo sapiens");
-        this.salary = 0.0;
+       // this.salary = 0.0;
         this.cash = 0.0;
         this.garage = new Car[DEFAULT_GARAGE_SIZE];
         String name = firstName;
     }
+   // public Double getSalary() {
+     //   return salary;
+    //}
+
+   // public void setSalary(Double salary) {
+      //  if(salary <= 0){
+      //      System.out.println("Wartość nie może być ujemna ani równa zero");
+     //   }else{
+     //       System.out.println("dane wyslane zostały do systemu ksiegowego");
+     //       System.out.println("Proszę odebrac aneks w dziale kadr - zgłosić się do pani Hani");
+     //       System.out.println("ZUS i US został wie o zmianie wypłaty - proszę nie dokonywać zmian");
+     //       this.salary = salary;
+    //    }
+  //  }
 
     @Override
     public void feed(Double foodweight) {
