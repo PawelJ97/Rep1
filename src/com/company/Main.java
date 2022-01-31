@@ -4,9 +4,6 @@ import com.company.Devices.*;
 import creature.Animal;
 import creature.Pet;
 
-import java.util.ArrayList;
-import java.util.List;
-
 
 public class Main {
 
@@ -59,15 +56,6 @@ public class Main {
         cat.sale(me, borat, 6000);
         me.sale(me, borat, 8000);
 
-        iphone.installAnApp("messenger");
-        iphone.installAnApp("youtube","last");
-
-        List<String> apps = new ArrayList<>();
-        apps.add("fb");
-        apps.add("gmail");
-        apps.add("office");
-        xiaomi.installAnApp(apps);
-
         Disel audi  = new Disel("Audi", "A6", 2013, "White", 1500);
         Electric nissan = new Electric("Nissan", "Leaf", 2021, "Black", 3000);
         LPG dacia = new LPG("Dacia", "Duster", 2018, "Orange", 4200);
@@ -106,10 +94,10 @@ public class Main {
 
        // audi.sale(Andrzej, Borat, 7000.0);
 
-        //Borat.cash = 15000.0;
-        //Andrzej.cash = 100000.0;
-        //Pablo.cash = 10000.0;
-        //System.out.println(" ");
+        Borat.cash = 15100.0;
+        Andrzej.cash = 60000.0;
+        Pablo.cash = 5.0;
+        System.out.println(" ");
 
         //System.out.println("Pieniądze jakimi dysponuje Borat przed zakupem " + Borat.cash + "pln");
         //System.out.println("Pieniądze jakie posiada Andrzej przed zakupem " + Andrzej.cash + "pln");
@@ -137,40 +125,28 @@ public class Main {
         //Pablo.CarsSort();
         //System.out.println(" ");
         //System.out.println(" ");
-        Andrzej.cash = 1000000.00;
-        Borat.cash = 1000000.00;
-        Pablo.cash = 1000000.00;
 
+        Application office = new Application("Pakiet office", 999.9, 600.0);
+        Application photoEd = new Application("PhotoEdit", 2.0, 60.0);
+        Application meta = new Application("Instagram", 10.1, 0.0);
+        System.out.println("ILOSC PIENIEDZY Przed " + Andrzej.cash + " pln");
+        xiaomi.installThisApp(Andrzej, office);
+        System.out.println("ILOSC PIENIEDZY po " + Andrzej.cash + " pln");
         System.out.println(" ");
-        Andrzej.addCar(dacia);
-        audi.OwnersOfCar();
+        xiaomi.freeApps();
         System.out.println(" ");
-        Andrzej.ListOfCars();
+        xiaomi.installThisApp(Andrzej, meta);
         System.out.println(" ");
-        dacia.sale(Andrzej, Borat, 5000.0);
-        dacia.OwnersOfCar();
+        xiaomi.freeApps();
         System.out.println(" ");
-        Andrzej.addCar(dacia);
-        dacia.sale(Andrzej, Borat, 6000.0);
+        System.out.println(" Wartość aplikacji na urządzeniu " + xiaomi.yourAppsValue() + " pln ");
         System.out.println(" ");
-        System.out.println(" Czy koś miał wcześniej ten samochód ? " + dacia.OwnersCheck());
+        iphone.installThisApp(Pablo, photoEd);
         System.out.println(" ");
-        System.out.println("Liczba transakcji sprzedazy tego auta: " + dacia.HowManyDeals());
+        xiaomi.installThisApp(Andrzej, photoEd);
         System.out.println(" ");
-        System.out.println( " Odbyła się sprzedaż ? " + dacia.SellingCheck(Andrzej, Borat));
-        System.out.println(" Odbyła się sprzedaż ? " + dacia.SellingCheck(Borat, Andrzej));
+        xiaomi.listOfApp();
         System.out.println(" ");
-        Pablo.ListOfCars();
-        Pablo.addCar(audi);
-        Pablo.addCar(nissan);
-        System.out.println(" ");
-        Pablo.ListOfCars();
-        System.out.println(" ");
-        nissan.OwnersOfCar();
-        System.out.println(" ");
-        dacia.OwnersOfCar();
-        System.out.println();
-
-
+        System.out.println(" Posiadasz taką aplikacje na telefonie ? " + xiaomi.doYouHaveThisApp(meta));
     }
     }

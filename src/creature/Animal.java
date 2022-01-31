@@ -9,7 +9,6 @@ abstract public class Animal implements Saleable, Feedable {
     public static final double DEFAULT_WEIGHT = 1.0;
     private static final double DEFAULT_FOOD_WEIGHT = 1.0;
 
-
     private String species;
     public String name;
     public Boolean isAlive;
@@ -48,7 +47,6 @@ abstract public class Animal implements Saleable, Feedable {
     }
 
     }
-
      public void takeForAWalk() {
         if (this.isAlive) {
             this.weight -= 1;
@@ -60,7 +58,6 @@ abstract public class Animal implements Saleable, Feedable {
             System.out.println("ANIMAL IS DEAD ");
         }
     }
-
     @Override
     public void sale(Human seller, Human buyer, double price) {
         if(buyer.cash < price){
@@ -74,9 +71,6 @@ abstract public class Animal implements Saleable, Feedable {
             buyer.pet = this;
             System.out.println("Udało się sprzedać zwierzaka za cene " + price + "pln");
         }
-
-
-
     }
 }
 

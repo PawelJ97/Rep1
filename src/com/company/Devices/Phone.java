@@ -1,10 +1,10 @@
 package com.company.Devices;
 
+import com.company.Application;
 import com.company.Human;
 import com.company.Saleable;
 
-import java.net.MalformedURLException;
-import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Phone extends Device implements Saleable {
@@ -16,6 +16,7 @@ public class Phone extends Device implements Saleable {
     String os;
     String colour;
     private final Integer ramSize;
+    public List<Application> applicationList;
 
     public Phone(String producer, String model, Integer yearOfProduction, Double screenSize, Integer ramSize, double value) {
         super(producer, model, yearOfProduction, "black", 3000);
@@ -28,6 +29,7 @@ public class Phone extends Device implements Saleable {
         this.screenSize = screenSize;
         this.ramSize = ramSize;
         this.os = os;
+        this.applicationList = new ArrayList<>();
     }
 
     public String getRamSize() {
@@ -73,43 +75,57 @@ public class Phone extends Device implements Saleable {
             System.out.println("Udało się sprzedać telefona za cene " + price + "pln");
         }
     }
-    public void installAnApp(List<String> appNames){
-        System.out.println("Instalowanie aplikacji z listy");
-        for(String appName : appNames){
-            this.installAnApp(appName);
+
+    public void installThisApp(Human owner, Application appName) {
+        if (owner.cash < appName.price) {
+            System.out.println("Brak środków na zakupienie aplikacji");
+            appName.InstalationApp = false;
+        }
+        if (owner.cash > appName.price) {
+            if (applicationList.contains(appName)) {
+                System.out.println("Ta aplikacja jest juz zainstalowana - " + appName.name);
+            } else {
+                applicationList.add(appName);
+                owner.cash -= appName.price;
+                System.out.println("Sprawdzanie czy wystarczy pamięci");
+                System.out.println("Transakcja - Kupiono produkt ");
+                System.out.println("Pobieranie - Prosze czekac");
+                System.out.println("Instalacja - Zainstalowano");
+                appName.InstalationApp = true;
+            }
         }
     }
 
-    public void installAnApp(String appName){
-        System.out.println("Instalowanie aplikacji wedlug nazwy: " + appName);
-        this.installAnApp(appName, DEFAULT_APP_VERSION);
+    public void listOfApp() {
+        for (Application q : applicationList)
+            System.out.println(q.appName);
     }
-    public void installAnApp(String appName, String version){
-        System.out.println("Instalowanie aplikacji wedlug nazwy: " + appName + " i wersji: " + version);
-        this.installAnApp(appName, version, DEFAULT_APP_SERVER);
+
+    public boolean doYouHaveThisApp(Application appName) {
+        for (Application q : applicationList) {
+            if (q == appName) {
+                return true;
+            }
+        }
+        return false;
     }
-    public void installAnApp(String appName, String version, String server){
-        System.out.println("Instalowanie aplikacji wedlug nazwy: " + appName + " i wersji: " + version + " z servera: " + server);
-        try {
-            URL url = new URL(DEFAULT_PROTOCOL_SERVER, server, DEFAULT_PORT_SERVER, appName + "-" + version);
-            this.installAnApp(url);
-        } catch (MalformedURLException e) {
-            System.out.println(" Nie udało sie zainstalować aplikacji" + appName);
-            e.printStackTrace();
+
+    public void freeApps() {
+        System.out.println("Darmowe Aplikacje, które posiadasz na telefonie");
+        for (Application q : applicationList) {
+            if (q.price <= 0.0) {
+                System.out.println(" ---> " + q.appName);
+            }
         }
     }
 
-    public void installAnApp(URL url){
-        System.out.println("Sprawdzanie adresu docelowego");
-        System.out.println("Sprawdzanie rozmiaru aplikacji");
-        System.out.println("Sprawdzanie miejsca na telefonie");
-        System.out.println("Obsluga platnosci");
-        System.out.println("Pobieranie aplikacji");
-        System.out.println("Rozpakowywanie aplikacji");
-        System.out.println("Instalacja");
+    public Double yourAppsValue() {
+        double cost = 0.0;
+        for (Application q : applicationList) {
+            cost += q.price;
+        }
+        return cost;
     }
 }
-
-
 
 
