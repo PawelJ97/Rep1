@@ -11,7 +11,7 @@ public class Human extends Animal {
 
     private static final int DEFAULT_GARAGE_SIZE = 5;
     public String firstName;
-    public String lastName;
+    public String name;
     private Double salary;
     public Double cash;
     public Car[] garage;
@@ -25,6 +25,7 @@ public class Human extends Animal {
         this.salary = 0.0;
         this.cash = 0.0;
         this.garage = new Car[DEFAULT_GARAGE_SIZE];
+        String name = firstName;
     }
 
     @Override
@@ -51,6 +52,7 @@ public class Human extends Animal {
         if (salary > car.value) {
             if (garage[spot] != null) {
                 this.garage[spot] = car;
+                car.carOwners.add(this);
                 System.out.println("Udało ci się zakupić nowe autko!!");
             } else {
                 System.out.println("To miejsce jest zajete !!");
